@@ -22,6 +22,10 @@ for (const modelDefiner of modelDefiners) {
   modelDefiner(sequelizeInstance);
 }
 
+(async () => {
+  await sequelizeInstance.sync();
+})();
+
 module.exports = sequelizeInstance;
 
 

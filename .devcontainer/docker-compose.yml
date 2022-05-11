@@ -10,7 +10,9 @@ services:
         # Append -bullseye or -buster to pin to an OS version.
         # Use -bullseye variants on local arm64/Apple Silicon.
         VARIANT: 16-bullseye
-
+    # command: npm run dev
+    # ports:
+    #   - "3000:3000"
     environment:
       - EXTERNAL_PORT=8080
       - PGUSER=postgres
@@ -23,6 +25,8 @@ services:
 
     volumes:
       - ..:/workspace:cached
+      # - ./src
+      # - ./node_modules
       
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity

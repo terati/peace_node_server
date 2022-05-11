@@ -1,12 +1,10 @@
-// import sequelizeInstance from "./database";
-// const sequelizeInstance = require("./server");
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('example', {
+  const User = sequelize.define('example', {
     // Model attributes are defined here
     user_id: {
-      type: DataTypes.STRING,
+      type: DataTypes.BIGINT,
       allowNull: false
     },
     name: {

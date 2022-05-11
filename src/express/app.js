@@ -33,6 +33,12 @@ for (const [routeName, routeController] of Object.entries(routes)) {
       makeHandlerAwareOfAsyncErrors(routeController.getAll)
     );
   }
+  if (routeController.createUser) {
+    app.post(
+      `/api/${routeName}`,
+      makeHandlerAwareOfAsyncErrors(routeController.createUser)
+    );
+  }
 }
 
 module.exports = app;
