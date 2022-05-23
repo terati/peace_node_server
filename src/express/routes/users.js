@@ -2,7 +2,7 @@ const { models } = require('../../sequelize');
 
 
 async function getAll(req, res, next) {
-  console.log("getAll_attempted");
+  // console.log("getAll_attempted");
   try {
     const ALL = await models.example.findAll({
       attributes: ['user_id', 'name']
@@ -14,7 +14,7 @@ async function getAll(req, res, next) {
 }
 
 async function createUser(req, res, next) {
-  console.log("createUser_attempted");
+  // console.log("createUser_attempted");
   try {
     console.log(req);
     const ALL = await models.example.create({

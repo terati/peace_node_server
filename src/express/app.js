@@ -1,11 +1,19 @@
 const express = require('express');
+const ws = require('ws');
 const bodyParser = require('body-parser');
 
 const routes = {
   users: require('./routes/users'),
+  inventory_db: require('./routes/_inventory_db'),
 };
 
 const app = express();
+
+// headless websocket server
+// const wsServer({ noServer: true });
+// ws.Server.on('connection', socket => {
+//   socket.on('message', message => console.log(message));
+// });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -39,6 +47,14 @@ for (const [routeName, routeController] of Object.entries(routes)) {
       makeHandlerAwareOfAsyncErrors(routeController.createUser)
     );
   }
+  if (routeController.search) {
+    app.get(
+      `/api/inventory_db/`,
+      makeHandlerAwareOfAsyncErrors(routeController.search)
+    );
+  }
 }
+
+
 
 module.exports = app;

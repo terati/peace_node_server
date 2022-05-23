@@ -1,14 +1,12 @@
 
 const app = require('./express/app');
 const sequelize = require('./sequelize');
+const websockets = require('./websockets');
 const PORT = 3000;
 
 let ex;
 const start = async () => {
   try {
-    // await sequelizeInstance.sync(
-    //   { force: false }
-    // );
     try {
       await sequelizeInstance.authenticate();
       ex = 'Connection has been established successfully.';
@@ -18,6 +16,7 @@ const start = async () => {
     }
 
     app.listen(PORT);
+    // websockets(app);
 
   } catch (error) {
     console.log(error);
