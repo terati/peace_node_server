@@ -20,6 +20,7 @@ const sequelizeInstance = new Sequelize(
 const modelDefiners = [
   require('./models/user.model'),
   require('./models/inventory_db.model'),
+  require('./models/inventory_tracker.model'),
 ]
 
 // defined all models according to their files.

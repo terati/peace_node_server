@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const routes = {
   users: require('./routes/users'),
   inventory_db: require('./routes/_inventory_db'),
+  inventory_tracker: require('./routes/inventory_tracker'),
 };
 
 const app = express();
@@ -53,6 +54,27 @@ for (const [routeName, routeController] of Object.entries(routes)) {
       makeHandlerAwareOfAsyncErrors(routeController.search)
     );
   }
+
+  // inventory tracker data
+  if (routeController.insert_inventory_record) {
+    app.put(
+      `/api/inventory_tracker`,
+      makeHandlerAwareOfAsyncErrors(routeController.insert_inventory_record)
+    )
+  }
+  if (routeController.update_inventory_record) {
+    app.post(
+      `/api/inventory_tracker`,
+      makeHandlerAwareOfAsyncErrors(routeController.update_inventory_record)
+    )
+  }
+  if (routeController.search_inventory_record) {
+    app.get(
+      `/api/inventory_tracker`,
+      makeHandlerAwareOfAsyncErrors(routeController.search_inventory_record)
+    )
+  }
+
 }
 
 

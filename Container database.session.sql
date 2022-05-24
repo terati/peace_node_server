@@ -8,7 +8,21 @@
 
 -- SELECT * FROM inventory_db;
 
-SELECT * FROM inventory_db WHERE ndc_package_code_without_hyphens ILIKE '72205023%';
+-- SELECT * FROM inventory_db WHERE ndc_package_code_without_hyphens ILIKE '72205023%';
+
+-- SELECT * FROM inventory_db WHERE propietary_name ILIKE '%atorvastatin%';
+
+-- SELECT * FROM inventory_tracker;
+
+-- SELECT * FROM inventory_tracker 
+-- LEFT JOIN inventory_db
+-- ON inventory_db.ndc_package_code_without_hyphens = inventory_tracker.ndc_package_code_without_hyphens;
+
+SELECT * FROM inventory_db
+LEFT JOIN inventory_tracker
+ON inventory_db.ndc_package_code_without_hyphens = inventory_tracker.ndc_package_code_without_hyphens
+WHERE inventory_db.ndc_package_code_without_hyphens ILIKE '009350%';
+
 
 -- DROP TABLE IF EXISTS example;
 
