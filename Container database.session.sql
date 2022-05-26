@@ -14,14 +14,15 @@
 
 -- SELECT * FROM inventory_tracker;
 
--- SELECT * FROM inventory_tracker 
--- LEFT JOIN inventory_db
--- ON inventory_db.ndc_package_code_without_hyphens = inventory_tracker.ndc_package_code_without_hyphens;
+SELECT * FROM inventory_tracker 
+LEFT JOIN inventory_db
+ON inventory_db.ndc_package_code_without_hyphens = inventory_tracker.ndc_package_code_without_hyphens;
 
-SELECT * FROM inventory_db
-LEFT JOIN inventory_tracker
-ON inventory_db.ndc_package_code_without_hyphens = inventory_tracker.ndc_package_code_without_hyphens
-WHERE inventory_db.ndc_package_code_without_hyphens ILIKE '009350%';
+-- SELECT * FROM inventory_db
+-- LEFT JOIN inventory_tracker
+-- ON inventory_db.ndc_package_code_without_hyphens = inventory_tracker.ndc_package_code_without_hyphens
+-- LIMIT 100;
+-- WHERE inventory_db.ndc_package_code_without_hyphens ILIKE '009350%';
 
 
 -- DROP TABLE IF EXISTS example;

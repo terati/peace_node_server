@@ -48,12 +48,12 @@ for (const [routeName, routeController] of Object.entries(routes)) {
       makeHandlerAwareOfAsyncErrors(routeController.createUser)
     );
   }
-  if (routeController.search) {
-    app.get(
-      `/api/inventory_db/`,
-      makeHandlerAwareOfAsyncErrors(routeController.search)
-    );
-  }
+  // if (routeController.search) {
+  //   app.get(
+  //     `/api/inventory_db/`,
+  //     makeHandlerAwareOfAsyncErrors(routeController.search)
+  //   );
+  // }
 
   // inventory tracker data
   if (routeController.insert_inventory_record) {
@@ -72,6 +72,14 @@ for (const [routeName, routeController] of Object.entries(routes)) {
     app.get(
       `/api/inventory_tracker`,
       makeHandlerAwareOfAsyncErrors(routeController.search_inventory_record)
+    )
+  }
+
+  //searching database in general 
+  if (routeController.search_inventory_db) {
+    app.get(
+      `/api/inventory_db`,
+      makeHandlerAwareOfAsyncErrors(routeController.search_inventory_db)
     )
   }
 

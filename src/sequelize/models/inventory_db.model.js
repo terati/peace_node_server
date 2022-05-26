@@ -16,6 +16,7 @@ module.exports = (sequelize) => {
     },
     ndc_package_code_without_hyphens: {
       type: DataTypes.STRING,
+      primaryKey: true,
       allowNull: false
     },
     package_description: {
